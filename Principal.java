@@ -7,3 +7,10 @@ public class Principal{
 		ventana.setVisible(true);
 	}
 }
+
+
+
+/*COMANDOS CON LOS ARCHIVOS EN LA RAIZ
+javac -d . Principal.java Ventana.java
+jar uf aPelo.jar -C . formulario/Principal.class -C . formulario/Ventana.class
+*/
