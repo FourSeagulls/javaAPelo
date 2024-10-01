@@ -16,6 +16,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 public class Ventana extends JFrame{
+    private JTextField areaTexto;
+    private JLabel titulo;
+
     public Ventana(){
       //Crea la ventana principal
         setSize(500,500); //tamaño
@@ -51,6 +54,7 @@ public class Ventana extends JFrame{
         JButton boton1 = new JButton("Botón 1");        //Crea los botones
         boton1.addActionListener(e -> accionBoton1());
         JButton boton2 = new JButton("Botón 2");
+        boton2.addActionListener(e -> intercambiarTexto());
         JButton boton3 = new JButton("Botón 3");
         JButton boton4 = new JButton("Botón 4");
         panelHerramientas.add(boton1);          //Añade los botones
@@ -60,7 +64,7 @@ public class Ventana extends JFrame{
         panelPrincipal.add(panelHerramientas);  //Añade la botonera al panel principal
 
         //Crea una etiqueta
-        JLabel titulo = new JLabel();
+        titulo = new JLabel();
         titulo.setForeground(Color.yellow); //Color de letras Amarillo
         titulo.setText("<html><h1>Formulario de Gerentes</html></h1>"); //El texto
 
@@ -68,7 +72,7 @@ public class Ventana extends JFrame{
         JPanel panelCentral = new JPanel();
         panelCentral.setBackground(Color.green);
         panelCentral.setLayout(new GridLayout(2,1));
-        JTextField areaTexto = new JTextField(); 
+        areaTexto = new JTextField(); 
         areaTexto.setText("Escribe algo");
         panelCentral.add(areaTexto);
         panelCentral.add(titulo);
@@ -81,4 +85,13 @@ public class Ventana extends JFrame{
     public void accionBoton1(){
       JOptionPane.showMessageDialog(null, "Acción del primero");
     }
+
+    // Método para intercambiar el texto entre areaTexto y titulo
+    private void intercambiarTexto() {
+        String textoArea = areaTexto.getText();
+        String textoTitulo = titulo.getText();
+        titulo.setText(textoArea);
+        areaTexto.setText(textoTitulo);
+    }
+
 }
